@@ -1,0 +1,27 @@
+body {
+    background: url(../images/2015.gif);
+    background-size: cover;
+}
+
+
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.container {
+    background: url(../images/car.png);
+    background-size: cover;
+    width: 50%;
+    height: 600px;
+    margin-left: 25%;
+    margin-top: 5%;
+    text-align: center;
+    color: white;
+}
+
+.input-group {
+    color: red;
+    font-size: 20px;
+}
