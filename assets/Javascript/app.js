@@ -1,23 +1,26 @@
+//hides quiz before start is pressed
 var quiz = $('.game').hide();
-            
+     
+//starts quiz game
 var startGame = $("#start-btn").on('click', function() {
     $(this).parent().hide();
     $('.game').show();
     });
 
     function changeValue() {
-document.getElementById("timer").innerHTML = --value;
-}
+        document.getElementById("timer").innerHTML = --value;
+    }
 
-var timerInterval = null;
-function start() {
-value = 5;
-timerInterval = setInterval(changeValue, 1000);  
-if (value == 0){
-clearInterval(timerInterval);
+        var timerInterval = null;
+            function start() {
+            value = 45;
+            timerInterval = setInterval(changeValue, 1000);  
 
-}
-
+            if (timerInterval == 0){
+                start();
+                    
+            
+            }
 }
 
 $("#sub-but").click(function() {
@@ -81,6 +84,10 @@ var submitButton = document.getElementById('sub-but');
 
 generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
+function newFunction() {
+    console.log(showResults);
+}
+
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
 function showQuestions(questions, quizContainer){
@@ -107,14 +114,14 @@ for(letter in questions[i].answers){
     );
 }
 
-// add this question and its answers to the output
+// adds question and its answers to the output
 output.push(
     '<div class="question">' + questions[i].question + '</div>'
     + '<div class="answers">' + answers.join('') + '</div>'
 );
 }
 
-// finally combine our output list into one string of html and put it on the page
+//combines output list into one string of html and puts it on the page
 quizContainer.innerHTML = output.join('');
 }
 
@@ -128,7 +135,7 @@ var answerContainers = quizContainer.querySelectorAll('.answers');
 var userAnswer = '';
 var numCorrect = 0;
 
-// for each question...
+// for each question
 for(var i=0; i<questions.length; i++){
 
 // find selected answer
@@ -147,6 +154,7 @@ else{
     // color the answers red
     answerContainers[i].style.color = 'red';
 }
+
 }
 
 // show number of correct answers out of total
@@ -159,6 +167,7 @@ showQuestions(questions, quizContainer);
 // on submit, show results
 submitButton.onclick = function(){
 showResults(questions, quizContainer, resultsContainer);
+
 }
 
 }
