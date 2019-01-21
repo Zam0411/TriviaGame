@@ -12,20 +12,17 @@ document.getElementById("timer").innerHTML = --value;
 var timerInterval = null;
 function start() {
 value = 5;
-
-timerInterval = setInterval(changeValue, 1000); 
-
+timerInterval = setInterval(changeValue, 1000);  
 if (value == 0){
-
-
+clearInterval(timerInterval);
 
 }
-
 
 }
 
 $("#sub-but").click(function() {
-showResults;
+clearInterval(timerInterval);
+
 
 });
 
