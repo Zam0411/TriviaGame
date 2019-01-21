@@ -17,7 +17,7 @@ var startGame = $("#start-btn").on('click', function() {
             timerInterval = setInterval(changeValue, 1000);  
 
             if (timerInterval == 0){
-                start();
+                stop();
                     
             
             }
